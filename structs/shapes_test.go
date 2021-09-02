@@ -1,6 +1,7 @@
 package structs
 
 import (
+	"math"
 	"testing"
 )
 
@@ -16,23 +17,33 @@ func TestPerimeter(t *testing.T) {
 }
 
 func TestArea(t *testing.T) {
-
-	checkArea := func(t testing.TB, shape Shape, want float64) {
-		t.Helper()
-		got := shape.Area()
-		if got != want {
-			t.Errorf("got %g, want %g", got, want)
-		}
+	testCases := []struct {
+		desc  string
+		shape Shape
+		want  float64
+	}{
+		{
+			desc:  "Circle: Radius 10",
+			shape: Circle{10},
+			want:  math.Pi * 10 * 10,
+		},
+		{
+			desc:  "Rectangle: 10X20",
+			shape: Rectangle{10, 20},
+			want:  10 * 20,
+		},
+		{
+			desc:  "Triangle",
+			shape: Triangle{12, 6},
+			want:  36,
+		},
 	}
-
-	t.Run("Rectangle", func(t *testing.T) {
-		rec := Rectangle{10, 20}
-		checkArea(t, rec, 200)
-	})
-
-	t.Run("Circle", func(t *testing.T) {
-		circle := Circle{10}
-		checkArea(t, circle, 200)
-	})
-
+	for _, tC := range testCases {
+		t.Run(tC.desc, func(t *testing.T) {
+			got := tC.shape.Area()
+			if got != tC.want {
+				t.Errorf("%#v got %g, want %g", tC.shape, got, tC.want)
+			}
+		})
+	}
 }
