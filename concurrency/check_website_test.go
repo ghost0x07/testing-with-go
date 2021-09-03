@@ -40,7 +40,7 @@ func slowWebsiteChecker(_ string) bool {
 
 func BenchmarkCheckWebsite(b *testing.B) {
 	urls := make([]string, 100)
-	for i, _ := range urls {
+	for i := range urls {
 		urls[i] = "a url"
 	}
 

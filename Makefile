@@ -1,5 +1,5 @@
 test-all:
-	go test -cover -v ./...
+	go test  -cover -v -bench="." ./...
 test-structs:
 	go test -cover -v ./structs/
 test-maps:
@@ -10,3 +10,5 @@ test-mocks:
 	go test -cover -v ./mocks/
 test-concurrency:
 	go test -race -cover -v -bench=. ./concurrency/
+test-select:
+	go test -cover -v ./selector/
