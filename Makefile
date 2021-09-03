@@ -4,3 +4,5 @@ test-structs:
 	go test -cover -v ./structs/
 test-maps:
 	go test -cover -v ./maps/
+test-di:
+	go test -cover -v ./di/

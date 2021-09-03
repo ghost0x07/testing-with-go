@@ -1,9 +1,10 @@
 package main
 
 import (
-	"fmt"
+	"hello/di"
+	"os"
 )
 
 func main() {
-	fmt.Println(Hello("World", ""))
+	di.Greet(os.Stdout, "Faiz")
 }
