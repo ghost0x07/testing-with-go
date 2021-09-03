@@ -8,3 +8,5 @@ test-di:
 	go test -cover -v ./di/
 test-mocks:
 	go test -cover -v ./mocks/
+test-concurrency:
+	go test -race -cover -v -bench=. ./concurrency/
