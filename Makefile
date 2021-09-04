@@ -12,3 +12,5 @@ test-concurrency:
 	go test -race -cover -v -bench=. ./concurrency/
 test-select:
 	go test -cover -v ./selector/
+test-reflection:
+	go test -cover -v ./reflection/
