@@ -14,3 +14,5 @@ test-select:
 	go test -cover -v ./selector/
 test-reflection:
 	go test -cover -v ./reflection/
+test-synccounter:
+	go test -cover -v ./synccounter/
